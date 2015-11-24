@@ -1,0 +1,57 @@
+
+<%= form_for :fiction, url: fictions_path do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+    <p>
+    <%= f.label :alternate %><br>
+    <%= f.text_field :alternate %>
+  </p>
+
+    <p>
+    <%= f.label :author %><br>
+    <%= f.text_field :author %>
+  </p>
+
+    <p>
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </p>
+
+    <p>
+      <%= f.label :genres %><br>
+      <%  @genres.each do |c| %>
+          <%= f.check_box(:genres, { :multiple => true, include_hidden: false }, c.id) %>
+          <%= c.title %>
+      <% end %>
+    </p>
+
+    <p>
+    <%= f.label :language %><br>
+    <%= f.text_field :language %>
+  </p>
+
+    <p>
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </p>
+
+    <p>
+    <%= f.label :editor %><br>
+    <%= f.text_field :editor %>
+  </p>
+
+    <p>
+    <%= f.label :translator %><br>
+    <%= f.text_field :translator %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', fictions_path %>

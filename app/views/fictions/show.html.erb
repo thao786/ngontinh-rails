@@ -1,0 +1,92 @@
+<div class="jumbotron">
+          <p></p>
+    </div>
+
+    <div class="row body">
+      <div class="col-sm-3">
+          <%= render partial: "util/truyenngaunhien", object: @random %>
+      </div><!--col-sm-3-->
+
+
+      <div class="col-sm-9">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href="/genres">Genres</a></li>
+            <li class="active"><%= @fiction.title %></li>
+        </ol>
+
+
+        <div class="row">
+          <div class="col-sm-4">
+            <img src="<%= @fiction.getImg %>" alt="" class="thumbnail img-responsive" width="300" height="425">
+          </div>
+          <div class="col-sm-6">
+            <h2 class="text-success"><b><%= @fiction.title %></b></h2>
+            <br>
+            <p><i>Alternate</i>:  <%= @fiction.alternate %></p>
+            <p><i>Author</i>:  <%= @fiction.author %></p>
+            <p><i>Genre</i>:  <%= @fiction.title %></p>
+            <p><i>State</i>:  <%= @fiction.state %></p>
+            <div class="text-muted">Source: <%= @fiction.source %><br>
+                                    Editor/Translator: <%= @fiction.editor %><br>
+                                    Views: <%= @fiction.title %><br>
+                                    Updated date:<%= @fiction.updated_at %></div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-7">
+            <h4 class="text-primary"><b>Latest Chapters </b></h4>
+            <div class="panel panel-success">
+              <div class="panel-body">
+                    <% @chapters.first(5).each do |p| %>
+                        <a href='<%= fiction_chapter_path(@fiction, p.chapnum) %>'>Chapter <%= p.chapnum %>:  <%= p.title %> </a><br>
+                    <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+
+        <h4 class="text-warning"><b>Summary </b></h4>
+        <div class="well">
+          <p><%= @fiction.overview %></p>
+        </div>
+
+
+        <br>
+
+        <h4 class="text-danger"><b>Table of Content </b></h4>
+
+        <%= paginate @chapters %>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Chapter title</th>
+                <th>Date</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% @chapters.each do |p| %>
+                    <tr class=''>
+                          <td>Chap <%= link_to p.chapnum, fiction_chapter_path(@fiction, p.chapnum) %></td>
+                          <td><%= link_to p.title[0..50], fiction_chapter_path(@fiction, p.chapnum) %></td>
+                          <td><%= p.updated_at %></td>
+                            <td><%= link_to 'Edit', edit_fiction_chapter_path(@fiction, p.chapnum) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+          </table>
+        </div>
+
+<%= paginate @chapters %>
+      </div><!-- col-sm-9 -->
+    </div><!-- row body -->
+  </div><!--startofbody-->
+</div><!--container-->

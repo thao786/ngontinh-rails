@@ -1,0 +1,65 @@
+<div class="jumbotron hidden-xs">
+      <p></p>
+    </div>
+
+    <div class="row body">
+      <div class="col-sm-3 hidden-xs">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><b>Table of Content</b></h3>
+            </div>
+            <div class="panel-body">
+              <div class="list-group">
+                    <% @chapters.first(15).each do |p| %>
+                        <a href='<%= fiction_chapter_path(@fiction, p.chapnum) %>' class='list-group-item list-group-item-warning'>
+                            Chapter <%= p.chapnum %>: <%= p.title %>
+                        </a>
+                    <% end %>
+
+              </div><!--list group-->
+            </div>
+          </div>
+
+        <%= render partial: "util/truyenngaunhien", object: @random %>
+
+      </div><!--col-sm-3-->
+
+
+      <div class="col-sm-9">
+        <ol class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li><a href=" <%= fiction_path(@fiction) %>"><%= @fiction.title %></a></li>
+            <li class="active">Chapter <%= @chapter.chapnum %></li>
+        </ol>
+
+
+        <div class="bodytruyen">
+          <ul class="pager" float:right;>
+                <li><button type="submit" class="btn btn-warning btn-sm %disable">
+                    <a href="<%= fiction_chapter_path(@fiction, @chapter.chapnum-1) %>" style="color:white;">&larr; Back</a></button></li>
+
+                <li><button type="submit" class="btn btn-success btn-sm %disable2">
+                    <a href="<%= fiction_chapter_path(@fiction, @chapter.chapnum+1) %>" style="color:white;"> Next &rarr;</a></button></li>
+          </ul>
+
+          <a href="<%= fiction_path(@fiction) %>"><h2 class="text-danger text-center"><strong><%= @chapter.title %></strong></h2></a>
+
+          <hr class="style-two">
+
+          <p>
+                <%= simple_format(@chapter.body) %> <br>
+          </p>
+
+          <ul class="pager" float:right;>
+            <li><button type="submit" class="btn btn-warning btn-sm %disable">
+                <a href="<%= fiction_chapter_path(@fiction, @chapter.chapnum-1) %>" style="color:white;">&larr; Back</a></button></li>
+            <li><button type="submit" class="btn btn-success btn-sm %disable2">
+                <a href="<%= fiction_chapter_path(@fiction, @chapter.chapnum+1) %>" style="color:white;"> Next &rarr;</a></button></li>
+          </ul>
+
+        </div>
+
+      </div><!--col-sm-3-->
+    </div><!-- row body -->
+  </div><!--startofbody-->
+</div><!--container-->

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  alternate: MyString
+  author: MyString
+  state: 1
+  source: MyString
+  editor: MyString
+  translator: MyString
+  language: MyString
+  text: MyText
+
+two:
+  title: MyString
+  alternate: MyString
+  author: MyString
+  state: 1
+  source: MyString
+  editor: MyString
+  translator: MyString
+  language: MyString
+  text: MyText

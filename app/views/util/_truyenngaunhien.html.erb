@@ -1,0 +1,25 @@
+<div class="panel panel-success hidden-xs">
+    <div class="panel-heading">
+    <h3 class="panel-title"><b>Random Series</b></h3>
+    </div>
+
+    <div class="panel-body">
+        <div class="list-group">
+          <% @random.each do |p| %>
+              <a href='<%= fiction_path(p) %>' class='list-group-item'>
+                    <img src='<%= p.getImg %>' class='img-responsive floatLeft' width='90' height='120'>
+                    <h4 class='list-group-item-heading'> <%= p.title %></h4>
+                    <p class='small'>Author: <%= p.author %><br>
+                    Genre: <%= p.genres.map { |g| g.title + " | " }.join %> </p>
+              </a>
+          <% end %>"
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-success">
+<div class="panel-body">
+<p>Trangngontinh is a free online reading website. Stories are collected and uploaded from freelance source.</p>
+<p>To advertise, please contact roseskindergarten@gmail.com, or (1) 416 819 1995.</p>
+</div>
+</div>

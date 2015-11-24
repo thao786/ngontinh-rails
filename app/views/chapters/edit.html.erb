@@ -1,0 +1,40 @@
+<h1>Editing chapter</h1>
+
+<%= link_to 'Destroy', fiction_chapter_path(@fiction, @chapter.chapnum),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %> <br>
+
+<% if @chapter.errors.any? %>
+<div id="error_explanation">
+    <h2>
+        <%= pluralize(@chapter.errors.count, "error") %> prohibited
+        this article from being saved:
+    </h2>
+    <ul>
+        <% @chapter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<%= form_for :chapter, url: fiction_chapter_path(@fiction.path, @chapter.chapnum), method: :patch do |f| %>
+    <p>
+      <%= f.label :chapnum %><br>
+      <%= f.text_field :chapnum %>
+    </p>
+
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :body %><br>
+      <%= f.text_area :body %>
+    </p>
+
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
