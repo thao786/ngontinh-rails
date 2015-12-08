@@ -1,0 +1,72 @@
+<div class="jumbotron">
+      <p></p>
+    </div>
+
+    <div class="row body">
+      <div class="col-sm-3">
+        <%= render partial: "util/truyenngaunhien", object: @random %>
+      </div><!--col-sm-3-->
+
+
+      <div class="col-sm-9">
+        <ol class="breadcrumb">
+            <li><a href="%l/hostPath">Home</a></li>
+            <li><a href="%{l/hostPath}gridtruyen/pgnumber/1">Genres</a></li>
+            <li class="active"><%= @genre.title %></li>
+        </ol>
+
+        <h3><span class="label label-danger">Stories in <%= @genre.title %></span></h3><br>
+
+        <div class="table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+              <th>Overview</th>
+              <th><a>Title</a></th>
+              <th><a>Author</a></th>
+              <th><a>Genre</a></th>
+              <th><a>State</a></th>
+              <th><a>Edit</a></th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <% @fictions.each do |p| %>
+                <tr>
+                  <td>
+                    <span class='dropdown hidden-xs'>
+                       <button class='dropdown-toggle btn btn-default btn-sm' data-toggle='dropdown'>Overview <b class='caret'></b></button>
+                        <div class='dropdown-menu overview'>
+                          <div class='row'>
+                            <div class='col-sm-3'>
+                              <img src='<%= p.getImg %>' class='thumbnail img-responsive imgFloat' width='140' height='190'>
+                            </div>
+                            <div class='col-sm-9'>
+                              ><b><%= p.title %></b>
+                              <hr>
+                              <p><%= p.overview %></p>
+                            </div>
+                          </div>
+                        </div>
+                    </span>
+                  </td>
+                  <td><%= link_to p.title, fiction_path(p) %></td>
+                  <td><%= p.author %></td>
+                  <td><%= p.genres.map { |x| x.title + " | " }.join %></td>
+                  <td><%= p.state ? "Completed" : "Not Completed" %></td>
+                  <td><%= link_to 'Edit', edit_fiction_path(p) %></td>
+                </tr>
+            <% end %>
+
+            <%= paginate @fictions %>
+
+            </tbody>
+          </table>
+
+          <%= paginate @fictions %>
+        </div>
+
+      </div><!-- col-sm-9 -->
+    </div><!-- row body -->
+  </div><!--startofbody-->
+</div><!--container-->

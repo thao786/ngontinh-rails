@@ -1,0 +1,42 @@
+<div class="jumbotron">
+      <p></p>
+    </div>
+
+    <div class="row body">
+      <div class="col-sm-3">
+        <%= render partial: "util/truyenngaunhien", object: @random %>
+      </div><!--col-sm-3-->
+
+
+      <div class="col-sm-9">
+        <ol class="breadcrumb">
+            <li><a href="%{l/hostPath}">Home</a></li>
+            <li class="active">Genres</li>
+        </ol>
+
+        <% @genres.each do |g| %>
+            <% if g.id % 4 == 1 %>
+              <div class="row">
+            <% end %>
+
+              <% if g.id % 8 == 1 || g.id % 8 == 3 || g.id % 8 == 6 || g.id % 8 == 0%>
+                  <div class="col-sm-3 chuThich">
+              <% else %>
+                <div class="col-sm-3">
+              <% end %>
+
+              <img src="https://s3.amazonaws.com/ngontinh/image/fairytale.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
+              <a href="/genres/<%= g.id %>"><h4><span class="label label-warning"><%= g.title %></span></h4></a>
+            </div>
+
+            <% if g.id % 4 == 0 %>
+                </div>
+            <% end %>
+        <% end %>
+
+
+
+      </div><!-- col-sm-9 -->
+    </div><!-- row body -->
+  </div><!--startofbody-->
+</div><!--container-->
