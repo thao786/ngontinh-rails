@@ -36,7 +36,7 @@ class ChaptersController < ApplicationController
   end
 
   def destroy
-    @chapter = Chapter.find(params[:id])
+    @chapter = Chapter.find_by(chapnum: params[:id])
     @chapter.destroy
 
     redirect_to fiction_path(@chapter.fiction)
