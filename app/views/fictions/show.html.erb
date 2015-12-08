@@ -7,14 +7,12 @@
           <%= render partial: "util/truyenngaunhien", object: @random %>
       </div><!--col-sm-3-->
 
-
       <div class="col-sm-9">
         <ol class="breadcrumb">
             <li><a href="/">Home</a></li>
             <li><a href="/genres">Genres</a></li>
             <li class="active"><%= @fiction.title %></li>
         </ol>
-
 
         <div class="row">
           <div class="col-sm-4">
@@ -40,7 +38,7 @@
             <h4 class="text-primary"><b>Latest Chapters </b></h4>
             <div class="panel panel-success">
               <div class="panel-body">
-                    <% @chapters.first(5).each do |p| %>
+                    <% @chapters.last(5).each do |p| %>
                         <a href='<%= fiction_chapter_path(@fiction, p.chapnum) %>'>Chapter <%= p.chapnum %>:  <%= p.title %> </a><br>
                     <% end %>
               </div>
