@@ -1,3 +1,14 @@
+genres = ["Classical", "Fairy Tales", "Chiến Trường", "Cổ Đại", "Công Sở", "Cung Đấu",
+          "Cung Đình", "Đam Mỹ", "Đoản Văn", "Đồng Nhân", "Điền Văn", "Giang Hồ", "Hài",
+          "Hắc Bang", "Hiện Đại", "Hoán Thân", "Huyền Huyễn", "Kiếm Hiệp", "Ngược",
+          "Nhân Thú", "Nữ Tôn", "Nữ Phẫn Nam Trang", "NP", "Phúc Hắc Nam", "Quân Nhân",
+          "Sắc", "Sủng", "Sư đồ Luyến", "Học đường", "Tiên Hiệp", "Trọng Sinh",
+          "Võng Du", "Xuyên Không", "HE", "SE", "OE"]
+        
+genres.each{ |x|
+	Genre.create(title: x)
+}
+
 
 def process_Info_txt(path, fiction_folder, lang = 'vn')
   genres = ["Classical", "Fairy Tales", "Chiến Trường", "Cổ Đại", "Công Sở", "Cung Đấu",
