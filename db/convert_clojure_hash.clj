@@ -29,12 +29,3 @@
                 	(spit path new-content))))))
 
 
-
-(doseq [folder (.listFiles (File. "/home/thao/Documents/ngontinh-clojure/resources/static/Stories"))]
-	(let [f 	(str folder "/Overview.txt")
-			encoding (:out (sh "file" "-bi" f))]
-		(if (.contains encoding "16")
-			(let [content (slurp f "utf-16le")]
-			     (spit f s)))))
-
-
