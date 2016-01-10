@@ -11,7 +11,7 @@
 
             <div class="col-sm-9">
               <div class="red panel panel-danger">
-                <a href="/welcome/all"><h2>List of Stories</h2></a>
+                <a href="/fictions"><h2>List of Stories</h2></a>
                     <div class="row">
                           <% @first6en.each do |p| %>
                                 <div class='col-sm-2'>
@@ -33,19 +33,19 @@
                 <div class="row">
                   <div class="col-sm-2 col-sm-offset-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/comedy.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="/genres?genre=comedy"><h4><span class="label label-warning">Comedy</h4></a>
+                    <a href="/genres/1"><h4><span class="label label-warning">Comedy</h4></a>
                   </div>
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/adventure.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="%/genres?genre=classical"><h4><span class="label label-warning">Adventure</h4></a>
+                    <a href="/genres/2"><h4><span class="label label-warning">Adventure</h4></a>
                   </div>
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/classical.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="/genres?genre=classical"><h4><span class="label label-warning">Classical</h4></a>
+                    <a href="/genres/3"><h4><span class="label label-warning">Classical</h4></a>
                   </div>
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/fairytale.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="/genres?genre=fairytale"><h4><span class="label label-warning">Fairy Tales</h4></a>
+                    <a href="/genres/4"><h4><span class="label label-warning">Fairy Tales</h4></a>
                   </div>
                 </div>
 
@@ -54,27 +54,27 @@
                 <div class="row">
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/huyenhuyen.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="/genres/genre=huyenhuyen"><h4><span class="label label-warning">Huyền Huyễn</h4></a>
+                    <a href="/genres/17"><h4><span class="label label-warning">Huyền Huyễn</h4></a>
                   </div>
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/cungdau.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="%{l/hostPath}vn/gridtruyen/theloai/cungdau/1"><h4><span class="label label-warning">Cung Đấu</h4></a>
+                    <a href="/genres/6"><h4><span class="label label-warning">Cung Đấu</h4></a>
                   </div>
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/vongdu.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="%{l/hostPath}vn/gridtruyen/theloai/vongdu/1"><h4><span class="label label-warning">Võng du</h4></a>
+                    <a href="/genres/32"><h4><span class="label label-warning">Võng du</h4></a>
                   </div>
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/sac.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="%{l/hostPath}vn/gridtruyen/theloai/sac/1"><h4><span class="label label-warning">Sắc</h4></a>
+                    <a href="/genres/26"><h4><span class="label label-warning">Sắc</h4></a>
                   </div>
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/xuyenkhong.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="%{l/hostPath}vn/gridtruyen/theloai/xuyenkhong/1"><h4><span class="label label-warning">Xuyên Không</h4></a>
+                    <a href="/genres/33"><h4><span class="label label-warning">Xuyên Không</h4></a>
                   </div>
                   <div class="col-sm-2">
                     <img src="https://s3.amazonaws.com/ngontinh/image/trongsinh.jpg" class="img-thumbnail img-responsive img-circle" width="130" height="130">
-                    <a href="%{l/hostPath}vn/gridtruyen/theloai/trongsinh/1"><h4><span class="label label-warning">Trọng Sinh</h4></a>
+                    <a href="/genres/31"><h4><span class="label label-warning">Trọng Sinh</h4></a>
                   </div>
                 </div>
               </div>
@@ -83,12 +83,12 @@
               <br>
 
               <div class="yellow panel panel-warning">
-                <a href="%{l/hostPath}vn"><h2>Vietnamese Site</h2></a>
+                <a href="#"><h2>Vietnamese Site</h2></a>
                 <p>Truyen Ngon Tinh truyen duoc nhieu doc gia quan tam, truyen co dai, truyen hien dai...</p>
                     <div class="row">
                         <% @first6vn.each do |p| %>
                            <div class='col-sm-2'>
-                            <a href='" linktruyen "'>
+                            <a href='<%= link_to p.title, fiction_path(p) %>'>
                                 <img src='<%= p.getImg %>' class='thumbnail img-responsive' width='120' height='160'></a>
                             <%= link_to p.title, fiction_path(p) %>
                           </div>
